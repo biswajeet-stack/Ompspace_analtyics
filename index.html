@@ -103,15 +103,6 @@ const OmSpaceAnalytics = () => {
   );
 
   const DonutChart = ({ data, size = 160 }) => {
-    // Calculate conic gradient segments
-    let currentDeg = 0;
-    const gradientParts = data.map(item => {
-      const deg = (item.pct / 100) * 360;
-      const part = `${item.color.replace('bg-', 'var(--tw-')} ${currentDeg}deg ${currentDeg + deg}deg`;
-      currentDeg += deg;
-      return part;
-    });
-
     // We can't easily map Tailwind colors to raw CSS variables in inline styles without a complex mapping, 
     // so we'll use specific hex codes for this SVG implementation for reliability.
     const colors = ['#3b82f6', '#ec4899', '#eab308']; // blue-500, pink-500, yellow-500
